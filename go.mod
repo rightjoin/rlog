@@ -1,4 +1,4 @@
-module github.com/TheReaper61/rlog
+module github.com/rightjoin/rlog
 
 go 1.12
 
