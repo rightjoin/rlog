@@ -1,4 +1,4 @@
-module github.com/rightjoin/rlog
+module github.com/rightjoin/slog
 
 go 1.12
 
