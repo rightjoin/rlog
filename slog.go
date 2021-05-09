@@ -8,6 +8,9 @@ import (
 	"github.com/rightjoin/fig"
 )
 
+// Global values that must be added to all logging requests
+var Globals = []interface{}{}
+
 // log.format:
 //      terminal
 //		json        (automatically logs to file)
@@ -92,21 +95,36 @@ func skipHandler(key string, values []interface{}, h log15.Handler) log15.Handle
 }
 
 func Debug(msg string, ctx ...interface{}) {
+	if Globals != nil && len(Globals) > 0 {
+		ctx = append(ctx, Globals...)
+	}
 	log15.Debug(msg, ctx...)
 }
 
 func Info(msg string, ctx ...interface{}) {
+	if Globals != nil && len(Globals) > 0 {
+		ctx = append(ctx, Globals...)
+	}
 	log15.Info(msg, ctx...)
 }
 
 func Warn(msg string, ctx ...interface{}) {
+	if Globals != nil && len(Globals) > 0 {
+		ctx = append(ctx, Globals...)
+	}
 	log15.Warn(msg, ctx...)
 }
 
 func Error(msg string, ctx ...interface{}) {
+	if Globals != nil && len(Globals) > 0 {
+		ctx = append(ctx, Globals...)
+	}
 	log15.Error(msg, ctx...)
 }
 
 func Crit(msg string, ctx ...interface{}) {
+	if Globals != nil && len(Globals) > 0 {
+		ctx = append(ctx, Globals...)
+	}
 	log15.Crit(msg, ctx...)
 }
